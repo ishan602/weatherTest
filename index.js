@@ -11,7 +11,7 @@ function getCityName() {
   return document.getElementById('city-name').value;
 }
 function getWeatherReport(cityName) {
-  var URL = 'http://api.openweathermap.org/data/2.5/weather';
+  var URL = 'https://api.openweathermap.org/data/2.5/weather';
   var API_KEY = '2fd1c2a4efb9dde205254a8b6e6c4aa6';
   var queryString = URL + '?q=' + cityName + '&appid=' + API_KEY;
   console.log(queryString);
@@ -43,9 +43,9 @@ function getWeatherReport(cityName) {
       objData.coord.lon = resultData.coord.lon;
       objData.country = resultData.sys.country.toLowerCase();
       objData.countryFlag =
-        'http://openweathermap.org/images/flags/' + objData.country + '.png';
+        'https://openweathermap.org/images/flags/' + objData.country + '.png';
       objData.iconImg =
-        'http://openweathermap.org/img/wn/' +
+        'https://openweathermap.org/img/wn/' +
         resultData.weather[0].icon +
         '@2x.png';
       objData.city = resultData.name;
