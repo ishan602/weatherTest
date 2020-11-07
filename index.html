@@ -7,16 +7,20 @@
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <form>
-      <input
-        type="text"
-        name="city-name"
-        id="city-name"
-        placeholder="Weather in your city"
-      />
-      <button type="submit" id="searchBtn">Search</button>
-    </form>
-    <div id="dynamic-content"></div>
+    <main>
+      <h1>Weather in your City</h1>
+      <form class="inputForm">
+        <input
+          type="text"
+          name="city-name"
+          id="city-name"
+          placeholder="Enter City Name..."
+          autocomplete="off"
+        />
+        <button type="submit" id="searchBtn" class="searchBtn">Search</button>
+      </form></main
+    >
+    <div id="dynamic-content" class="citiesWrapper"></div>
     <script src="index.js"></script>
   </body>
 </html>

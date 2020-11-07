@@ -81,7 +81,7 @@ function dynamicElement(objData) {
   countryImg.className = 'country-flag';
   var headingDiv = document.createElement('h2');
   headingDiv.className = 'city-name';
-  headingDiv.innerText = objData.city;
+  headingDiv.innerText = objData.city + ', ' + objData.country.toUpperCase();
   var currentWeather = document.createElement('p');
   currentWeather.className = 'current-weather';
   currentWeather.innerText =
@@ -96,15 +96,22 @@ function dynamicElement(objData) {
   country.className = 'country';
   country.innerText = objData.country.toUpperCase();
   var coord = document.createElement('p');
-  coord.innerText = '[ ' + objData.coord.lat + ',' + objData.coord.lon + ' ]';
-  dynamicDiv.appendChild(coord);
-  dynamicDiv.appendChild(country);
-  dynamicDiv.appendChild(cityCode);
-  dynamicDiv.appendChild(currentTemp);
-  dynamicDiv.appendChild(currentWeather);
-  dynamicDiv.appendChild(headingDiv);
+  coord.className = 'coord';
+  coord.innerText = '[ ' + objData.coord.lat + ', ' + objData.coord.lon + ' ]';
   dynamicDiv.appendChild(icon);
-  dynamicDiv.appendChild(countryImg);
+  var divWrapper1 = document.createElement('div');
+  divWrapper1.className = 'wrapper1';
+  var divWrapper2 = document.createElement('div');
+  divWrapper2.className = 'wrapper2';
+  divWrapper1.appendChild(headingDiv);
+  divWrapper1.appendChild(countryImg);
+  divWrapper2.appendChild(currentTemp);
+  divWrapper2.appendChild(currentWeather);
+  dynamicDiv.appendChild(divWrapper1);
+  dynamicDiv.appendChild(divWrapper2);
+  dynamicDiv.appendChild(coord);
+  dynamicDiv.appendChild(cityCode);
+
   document
     .getElementById('dynamic-content')
     .insertAdjacentElement('afterbegin', dynamicDiv);
